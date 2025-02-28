@@ -2,7 +2,7 @@ allprojects {
     apply plugin: 'java'
 
     group 'io.izzel.arclight'
-    version '1.0.0-SNAPSHOT'
+    version '1.0.1-SNAPSHOT'
 
     def getGitHash = { ->
         def stdout = new ByteArrayOutputStream()
@@ -52,7 +52,7 @@ jar.enabled = false
 
 tasks.register('collect', Copy) {
     destinationDir = file('build/libs')
-    // TODO arch loom updates from project(':bootstrap').tasks.forgeJar.outputs
+    from project(':bootstrap').tasks.forgeJar.outputs
     from project(':bootstrap').tasks.neoforgeJar.outputs
     from project(':bootstrap').tasks.fabricJar.outputs
 }
